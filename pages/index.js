@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import ImagePreview from "../src/components/ImagePreview.js";
 
 export default function Home() {
   const [imageValue, setImageValue] = useState("");
@@ -44,6 +45,7 @@ export default function Home() {
             setImage(event.target.files[0]);
           }}
         />
+        {image && <ImagePreview file={image} />}
         <button type="submit">Upload</button>
       </form>
       <h2>uploaded images are here</h2>
