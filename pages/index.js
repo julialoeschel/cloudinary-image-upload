@@ -49,19 +49,35 @@ export default function Home() {
         <button type="submit">Upload</button>
       </form>
       <h2>uploaded images are here</h2>
-      {images.map((image) => {
-        console.log(image);
-        return (
-          <div key={image.asset_id}>
-            <Image
-              alt="something here"
-              src={image.secure_url}
-              width={image.width}
-              height={image.height}
-            ></Image>
-          </div>
-        );
-      })}
+      <ul
+        style={{
+          listStyle: "none",
+          display: "flex",
+          width: 400,
+          gap: 10,
+          flexWrap: "wrap",
+        }}
+      >
+        {images.map((image) => {
+          console.log(image);
+          return (
+            <li
+              key={image.asset_id}
+              style={{
+                position: "relative",
+                width: 120,
+              }}
+            >
+              <Image
+                alt="something here"
+                src={image.secure_url}
+                width={image.width}
+                height={image.height}
+              ></Image>
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 }
